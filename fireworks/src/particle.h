@@ -24,7 +24,7 @@ public:
     
     void resetForce();
     void addForce(float x, float y);
-    void addDampingForce();
+    void addDampingForce(float dx, float dy);
     void setInitialCondition(float px, float py, float vx, float vy);
     void update();
     void draw();

@@ -8,10 +8,10 @@ void testApp::setup(){
     
     for (int i = 0; i < 100; i ++) {
         particle myParticle;
-        float vx = ofRandom(-4, 4);
-        float vy = ofRandom(-10,20);
-        myParticle.setInitialCondition(300, 300, vx, vy);
-        myParticle.damping = ofRandom(0.01, 0.05);
+        float vx = ofRandom(PI, 100);
+        float vy = ofRandom(PI,20);
+        myParticle.setInitialCondition(100, 100, vx, vy);
+        myParticle.damping = ofRandom(-0.01, -0.08);
         particles.push_back(myParticle);  // push_back adds elements to the array
     }
 
@@ -26,25 +26,29 @@ void testApp::update(){
     //update
     
     for(int i = 0; i < particles.size(); i ++){
-        particles[i].resetForce();
-        particles[i].addForce(0, 0.04);
-        particles[i].addDampingForce();
+        float dx = cos(20);
+        float dy = -sin(400);
+        
+        particles[i].addForce(0.2, 0.7);
+        particles[i].addDampingForce(dx, dy);
         particles[i].update();
         
     }
 
+    
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
-    
-    ofSetColor(0, 0, 0);
+    ofBackground(0);
+    ofSetColor(250, 7, 105);
     
     for (int i = 0; i < particles.size(); i++) {
-        float vx = ofRandom(-4, 4);
-        float vy = ofRandom(-10,20);
+        float vx = ofRandom(-4, 100);
+        float vy = ofRandom(-10,201);
         particles[i].draw();
-        particles[i].setInitialCondition(ofGetWidth()/2, ofGetHeight()/2, vx, vy);
+        particles[i].setInitialCondition(100, 100, vx, vy);
+        
     }
 
 }

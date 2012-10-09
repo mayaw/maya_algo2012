@@ -35,7 +35,7 @@ void particle::addForce(float x, float y){
     frc.y = frc.y + y;
 }
 //-------------------------------------------------------------
-void particle::addDampingForce(){
+void particle::addDampingForce(float dx, float dy){
 
     //adds a force in the opposite direction the particle is moving
     //damping is the force in the particles direction
@@ -56,6 +56,11 @@ void particle::setInitialCondition(float px, float py, float vx, float vy){
     
 }
 //-------------------------------------------------------------------
+void particle::update(){
+	vel = vel + frc;
+	pos = pos + vel;
+}
+//------------------------------------------------------------
 void particle::draw(){
     
     ofCircle(pos.x, pos.y, 3);
