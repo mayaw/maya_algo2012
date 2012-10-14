@@ -1,0 +1,36 @@
+Vector Field Code Questions
+// This is new to me- why are you declaring ints and floats on the left and redeclaring on the right?
+
+int fieldPosX		= (int)(pctx * (float)fieldWidth);
+    int fieldPosY		= (int)(pcty * (float)fieldHeight);
+	float fieldRadius	= (float)(radiusPct * fieldWidth);
+	
+
+//Still kinda confused as to what external and internal dimensions are
+
+// also confused by the addOutwardCircle, addCounterClockwiseCircle, addVectorCircle -- I pressed
+0 in mouse dragged but couldn't see any difference.  Also the algorithim I don't quite understand. 
+running through a for loop of start x and y and end x and y, looking through each pixel and then I get 
+lost.  Not sure what the distance is calculalting...  Also not sure what strongness refers to
+ for (int i = startx; i < endx; i++){
+        for (int j = starty; j < endy; j++){
+			
+            int pos = j * fieldWidth + i;
+            float distance = (float)sqrt((fieldPosX-i)*(fieldPosX-i) +
+                                         (fieldPosY-j)*(fieldPosY-j));
+            
+			if (distance < 0.0001) distance = 0.0001;  // since we divide by distance, do some checking here, devide by 0 is BADDDD
+			
+			if (distance < fieldRadius){
+				
+				float pct = 1.0f - (distance / fieldRadius);
+                float strongness = strength * pct;
+                field[pos].x += vx * strongness;   
+                field[pos].y += vy * strongness;
+                
+
+
+
+
+
+

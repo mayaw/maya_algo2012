@@ -35,7 +35,7 @@ void particle::addForce(float x, float y){
     frc.y = frc.y + y;
 }
 //-------------------------------------------------------------
-void particle::addDampingForce(float dx, float dy){
+void particle::addDampingForce(){
 
     //adds a force in the opposite direction the particle is moving
     //damping is the force in the particles direction
