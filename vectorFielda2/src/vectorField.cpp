@@ -313,6 +313,8 @@ void vectorField::addCounterClockwiseCircle(float x, float y, float radius, floa
 	int starty	= MAX(fieldPosY - fieldRadius, 0);
 	int endx	= MIN(fieldPosX + fieldRadius, fieldWidth);
 	int endy	= MIN(fieldPosY + fieldRadius, fieldHeight);
+    
+  
 	
 	
     for (int i = startx; i < endx; i++){

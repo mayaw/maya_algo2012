@@ -1,0 +1,171 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww13180\viewh19580\viewkind1
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 week 1:\
+explicit animation - you know where objects are going to be\
+implicit animation - simulation - creating a world putting objects in the world and letting it simulate.\
+linear movement formula --\
+( 1 - pct ) * A + ( pct ) * B\
+pct = a number between 0 and 1\
+\
+week 2:\
+unit circle // radius of one starts out at 0,0 with a perimeter of 2PI\
+put a value in sin return a value of -1, 1\
+sohcahtoa\
+sin b/c \
+cos a/c\
+tan b/a\
+tan approaches infinity\
+sin returns a number between -1 and 1\
+and we map it to return any number we want\
+use PI to make our way around the circle\
+modulator - controls the sin wave / carrier\
+\
+x = origx + radius * cos(angle)\
+y = orig y + radius * sin(angle)\
+\
+week 3:\
+OFPoint = an object that contains an x, y, and z.  A basic building block - point object that holds a lot of functionality\
+\
+class rectangle \{\
+  public:\
+  rectangle() //constructor - has no return type, a function that is called when an object is born.  If you have a constructor that takes parameters you can't call it in the header file.  Constructor is a special function that is called when an object is created.\
+  void setup();\
+  void update();\
+  void draw();\
+  ofPoint pos;\
+\};\
+\
+.h file is like the table of contents\
+\
+rotation is like a solar system\
+sun rotates around the Earth (translate).  Translate to moon use push pop\
+Push to a layer and pop it back - draw from 0,0\
+\
+\
+week 3:\
+growable arrays\
+vector < > \
+  .clear()\
+   .size()\
+   .push_back( )  -- (adding elements to array)\
+\
+vector <ofPoint> points;\
+	create a growable array of ofObject points\
+\
+we want to record point information but also time information\
+(x, y, t) Time Point  T is the time at which each point is generated\
+T1 -> T2 -> T3 -> T4\
+\
+timepoint\
+float x\
+float y\
+ float t = time\
+\
+week 4:\
+P	V	A\
+velocity = velocity + acceleration\
+position = position + velocity\
+\
+F = ma\
+force = mass x acceleration\
+force and acceleration can be thought of as same thing\
+force to control velocity and velocity to control position\
+\
+framerate independent animation\
+pixels per frame\
+\
+particle objects can have position and velocity \
+pos = point\
+velocity is a line\
+ofPoint pos --> where you are\
+ofPoint vel --> change (a line between points)\
+ofPoint fry --> forces that interact with objects\
+\
+virtual --> a keyword.  Use the word virtual when you create a recipe for an object.  When one thing extends another thing\
+polymorphism - objects that inherit objects \
+~  deconstructor gets called when object dies\
+    constructor gets called when an object is born\
+\
+constructor -- gets called when an object is created\
+resetForce - clears all the forces, every frame\
+addForce - adds a force\
+addDampingForce -- force in the opposite direction you are moving\
+setInitialCondition -- where you are starting, what direction you are moving\
+damping - what amount of force do we feel in the direction we are traveling\
+\
+pick a random angle and magnitude particle will move out in a circle rather than a square\
+\
+particles.erase - remove the first element in the array\
+\
+time elapsed - \
+.h\
+float lastTime;\
+float duration;\
+\
+cpp.\
+lastTime = ofGetElapsedTimef()\
+\
+float diffTime = ofGetElapsedTimef() // last time;\
+// if seconds have changed && seconds seconds % 0 != 0\
+do something\
+\
+noise function is like sin and cosine\
+\
+force opposite of velocity\
+damping slows down velocity\
+\
+ofGetElapsedTimef() //returns a floating point number --> number of seconds its been running\
+\
+line between where we are applying force and particles is important!\
+if the line is short = strong force\
+if line is long == weak force\
+\
+magnitude / radius -> 1 - m/r\
+\
+normalized vector - - special vector that has a length of 1\
+for every vector there is a normalized version of vector with length of 1\
+normalized vectors point in some direction\
+\
+repulsion force and attraction force are opposites\
+difference between repulsion and attraction \
+attraction =-\
+\
+\
+vector field -- every pixel in the image is defined\
+setupField // change internal size dimensions\
+\
+only setInitialCondition once // like setup function\
+\
+force is NOT cumulative!  Velocity IS!\
+\
+sin is of something changing.  \
+force is per frame so reset force\
+\
+vector field is not stored in RGB it's stored with each pixel as a vector.  \
+In the vector field image, we have only one vector per pixel\
+each pixel of the vector field is a vector\
+a vector stores an x and y value (i.e. it's the offset in x and y)\
+the angle of that vector is atan2( y, x)\
+the length of that vector is myVector.length()  // the longer way to write it is : \
+sqrt ( x * x + y * y)\
+\
+fieldWidth and fieldHeight are the internal dimensions of the vector field so you have \
+fieldWidth * fieldHeight "pixels" in your image. // each pixel being a vector\
+}
+
+
+int colorIndex = (x * VF.fieldWidth + y) * 3;          // vector field is not stored in RGB, it's stored with each pixel as a vector.  this looks wrong.
+for (int c = 0; c < 3; c++){     // no need to do this for loop, we don't have 3 values per pixel in the vector field image, we have one vector per pixel
+ofColor color;
+ float angle = ??????????;     // angle =    atan2(myVector.y, myVector.x)  
+// you need to calculate length of the vector
+// then use that for the brightness.  
+color = ofMap(angle[colorIndex + c], 0, 255, 0, VF.fieldWidth);    // I think you ofColor blah = ofColor::fromHsb(   ofMap(angle, ?,?, 0,255), 255, ???);
+
+? ? = range of angle (print it out,I think it's between -PI and PI
+??? = ofMap with the length of the vector (you'll need to see what the values are like), ie ofMap(length, 0,5, 0,255);
+ps you might want to start by just doing a for loop to go through the vector field and print out the angle and length of each pixel. 

@@ -65,17 +65,24 @@ void testApp::draw(){
     for(int x = 0; x < VF.fieldWidth; x ++){
         for (int y = 0; y < VF.fieldHeight; y++){
     
-            int pos = y * VF.fieldWidth + x;
-            int colorIndex = (x * VF.fieldWidth + y) * 3;
+            float pos = y * VF.fieldWidth + x;
             
-            for (int c = 0; c < 3; c++){
+            
+            float myVector = VF.fieldWidth * VF.fieldHeight;
                 ofColor color;
-                float angle = ??????????;
-                color = ofMap(angle[colorIndex + c], 0, 255, 0, VF.fieldWidth);
-            }
+                float angle = atan2(VF.x, VF.y);
+                //ofMap(myVector.length , 0, 5, 0, 255)
+                //ofColor::fromHsb(ofMap(angle, -PI,PI, 0,255), 255, myVector.length);
             
+            
+           /* ? ? = range of angle (print it out,I think it's between -PI and PI
+                                  ??? = ofMap with the length of the vector (you'll need to see what thevalues are like), ie ofMap(length, 0,5, 0,255); */
+
+            }
+    }
     
-	//ofSetColor(0,130,130, 200);
+    
+	ofSetColor(0,130,130, 200);
 	ofRect(30,30,300,75);
 	ofSetColor(255,255,255);
 	ofDrawBitmapString("space to clear\nchange drawing mode 'a'\ntoggle fade 'f'", 50, 50);
@@ -91,8 +98,8 @@ void testApp::draw(){
 			break;
 		case 3: ofDrawBitmapString("drawing mode: counter-clockwise", 50, 90); 
 			break;
-    }
-        }
+    
+        
 	}
 }
 

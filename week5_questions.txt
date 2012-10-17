@@ -9,9 +9,9 @@ int fieldPosX		= (int)(pctx * (float)fieldWidth);
 //Still kinda confused as to what external and internal dimensions are
 
 // also confused by the addOutwardCircle, addCounterClockwiseCircle, addVectorCircle -- I pressed
-0 in mouse dragged but couldn't see any difference.  Also the algorithim I don't quite understand. 
+0 in mouse dragged but couldn't see any difference.  Also the algorithm I don't quite understand. 
 running through a for loop of start x and y and end x and y, looking through each pixel and then I get 
-lost.  Not sure what the distance is calculalting...  Also not sure what strongness refers to
+lost.  Not sure what the distance is calculating...  Also not sure what strongness refers to
  for (int i = startx; i < endx; i++){
         for (int j = starty; j < endy; j++){
 			
@@ -27,7 +27,35 @@ lost.  Not sure what the distance is calculalting...  Also not sure what strongn
                 float strongness = strength * pct;
                 field[pos].x += vx * strongness;   
                 field[pos].y += vy * strongness;
+
+
+
+
                 
+int colorIndex = (x * VF.fieldWidth + y) * 3;          
+// vector field is not stored in RGB, it's stored with each pixel as a vector.  this looks wrong.
+for (int c = 0; c < 3; c++){     // no need to do this for loop, we don't have 3 values per pixel in the vector field image, we have one vector per pixel
+ofColor color;
+ float angle = ??????????;     // angle =    atan2(myVector.y, myVector.x)  
+
+// you need to calculate length of the vector
+// then use that for the brightness.  
+
+color = ofMap(angle[colorIndex + c], 0, 255, 0, VF.fieldWidth);    
+// I think you ofColor blah = ofColor::fromHsb(   ofMap(angle, ?,?, 0,255), 255, ???);
+
+? ? = range of angle (print it out,I think it's between -PI and PI
+??? = ofMap with the length of the vector (you'll need to see what the values are like), ie ofMap(length, 0,5, 0,255);
+
+ps you might want to start by just doing a for loop to go through the vector field and print out the angle and length of each pixel. 
+
+each pixel of the vector field is a vector
+a vector stores and x and y value (ie, it's the offset in x and y)
+the angle of that vector is atan2(y,x)
+the length of that vector is myVector.length()   (the longer way to write it is:  sqrt(x*x + y*y) http://www.purplemath.com/modules/distform.htm
+
+fieldWidth  and fieldHeight are the internal dimensions of the vector field, so you have fieldWidth* fieldHeight "pixels" in your image.   (each pixel being a vector)
+
 
 
 
