@@ -4,7 +4,6 @@
 
 #include "ofMain.h"
 #include "particle.h"
-#include "vectorField.h"
 
 class testApp : public ofSimpleApp{
 	
@@ -24,14 +23,12 @@ class testApp : public ofSimpleApp{
 		
 		// let's make a vector of them
 		vector <particle> particles;
-		vectorField VF;
-            
     
+        ofImage dropImage;
+        ofImage frankImage;
 	
-		int drawingStyle;
-		bool bFade;
-       
-   	
+		 
+	
 };
 
 #endif

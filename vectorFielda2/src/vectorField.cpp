@@ -74,6 +74,7 @@ void vectorField::draw(){
             float py2 = py + field[pos].y * 5;
 			
             ofLine(px,py, px2, py2);
+            
 			
 			
 			// draw an baseline to show direction

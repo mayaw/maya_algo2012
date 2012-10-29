@@ -65,12 +65,12 @@ void testApp::draw(){
     for(int x = 0; x < VF.fieldWidth; x ++){
         for (int y = 0; y < VF.fieldHeight; y++){
     
-            float pos = y * VF.fieldWidth + x;
+            int pos = y * VF.fieldWidth + x;
             
-            
-            float myVector = VF.fieldWidth * VF.fieldHeight;
                 ofColor color;
-                float angle = atan2(VF.x, VF.y);
+            float angle = atan2(VF.field[pos].y, VF.field[pos].x); //its an array of vector field objects inside the class
+            //VF.field.length()
+            //map the lenght to the HSB
                 //ofMap(myVector.length , 0, 5, 0, 255)
                 //ofColor::fromHsb(ofMap(angle, -PI,PI, 0,255), 255, myVector.length);
             

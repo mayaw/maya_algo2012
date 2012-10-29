@@ -17,7 +17,7 @@ class vectorField {
 		int externalWidth;
 		int externalHeight;
 	
-        vector <ofVec2f> field;
+        vector <ofVec2f> field; //these are my pixels
 
         vectorField();
         virtual ~vectorField();
