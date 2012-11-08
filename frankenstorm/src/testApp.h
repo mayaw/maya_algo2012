@@ -25,7 +25,7 @@ class testApp : public ofSimpleApp{
 		vector <particle> particles;
     
         ofImage dropImage;
-        ofImage frankImage;
+        //ofImage frankImage;
 	
 		 
 	

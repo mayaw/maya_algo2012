@@ -246,7 +246,7 @@ void particle::update(){
 //------------------------------------------------------------
 void particle::draw(){
     //ofCircle(pos.x, pos.y, 3);
-    
+    ofSetColor(255);//, <#int g#>, <#int b#>)
     drop->draw(pos.x,pos.y, 0, 0);
 
 }

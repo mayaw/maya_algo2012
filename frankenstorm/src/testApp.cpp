@@ -10,11 +10,12 @@ void testApp::setup(){
 	ofSetFrameRate(60);
     
     dropImage.loadImage("drop.png");
-    frankImage.loadImage("frankenstorm.png");
+   // frankImage.loadImage("frankenstorm.png");
 	
 	
 	for (int i = 0; i < 200; i++){
 		particle myParticle;
+        myParticle.drop = &dropImage;
 		myParticle.setInitialCondition(ofRandom(0,ofGetWidth()),ofRandom(0,ofGetHeight()),0,0);
 		particles.push_back(myParticle);
 	}
@@ -61,7 +62,7 @@ void testApp::draw(){
 		particles[i].draw();
 	}
 	
-    frankImage.draw(mouseX, mouseY);
+    //frankImage.draw(mouseX, mouseY);
 	
 }
 
