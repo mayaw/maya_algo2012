@@ -11,7 +11,7 @@ void testApp::setup(){
         float vx = ofRandom(PI, 100);
         float vy = ofRandom(PI,20);
         myParticle.setInitialCondition(ofRandom(0,300),ofRandom(0,300), 0,0);
-        myParticle.damping = 0.02;
+       // myParticle.damping = 0.02;
         particles.push_back(myParticle);  // push_back adds elements to the array
     }
 

@@ -69,10 +69,10 @@ void testApp::draw(){
             
                 ofColor color;
             float angle = atan2(VF.field[pos].y, VF.field[pos].x); //its an array of vector field objects inside the class
-            //VF.field.length()
+            //VF.field.length();
             //map the lenght to the HSB
-                //ofMap(myVector.length , 0, 5, 0, 255)
-                //ofColor::fromHsb(ofMap(angle, -PI,PI, 0,255), 255, myVector.length);
+            ofMap(angle, 0, 5, 0, 255);
+            ofColor::fromHsb(ofMap(angle, -PI,PI, 0,255), 255, VF.fieldSize);
             
             
            /* ? ? = range of angle (print it out,I think it's between -PI and PI

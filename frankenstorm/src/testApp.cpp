@@ -60,6 +60,7 @@ void testApp::draw(){
 	
 	for (int i = 0; i < particles.size(); i++){
 		particles[i].draw();
+        
 	}
 	
     //frankImage.draw(mouseX, mouseY);
